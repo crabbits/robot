@@ -1,6 +1,6 @@
 # Robot
 
-TODO: Write a gem description
+Gem that allows you to move a robot around a 5x5 surface
 
 ## Installation
 
@@ -18,8 +18,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Setup the robot
 
+    $ position = [1, 1, WEST]
+    $ robot = Robot::Robot.new(position: position)
+    
+Turn the robot 90 degrees left
+
+    $ robot.left
+    
+Turn the robot 90 degrees right
+
+    $ robot.right
+    
+Move the robot 1 space in the direction it's facing
+
+    $ robot.move
+    
+Get the robot's X and Y axis and ORIENTATION
+
+    $ robot.report
+    
 ## Contributing
 
 1. Fork it ( http://github.com/<my-github-username>/robot/fork )
@@ -27,6 +46,3 @@ TODO: Write usage instructions here
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-=======
-robot
-=====
