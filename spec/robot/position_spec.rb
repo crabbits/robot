@@ -5,11 +5,11 @@ describe Robot::Position do
   let(:x_axis) { 1 }
   let(:y_axis) { 2 }
   let(:orientation) { "NORTH" }
-  subject { Robot::Position.new(x_axis, y_axis, orientation) }
+  subject { Robot::Position.wrapper(x_axis, y_axis, orientation) }
 
-  #its(:x_position) { should eq x_position }
-  #its(:y_position) { should eq y_position }
-  #its(:orientation) { should eq orientation }
+  its(:x_axis) { should eq x_axis }
+  its(:y_axis) { should eq y_axis }
+  its(:orientation) { should eq orientation.downcase }
 
   it "should return nill if the x axis isn't valid" do
     expect(Robot::Position.wrapper(-1, 0, "NORTH")).to be_nil

@@ -5,7 +5,7 @@ describe Robot do
   let(:position) { Robot::Position.new(0, 0, "north") }
   subject { Robot::Robot.new(position) }
 
-  #its(:position) { should eq position }
+  its(:position) { should eq position }
   
   describe "report_position" do
 
