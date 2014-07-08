@@ -16,6 +16,15 @@ Or install it yourself as:
 
     $ gem install robot
 
+Or build and install with rake
+
+    $ rake build
+    $ rake install
+    
+## Test Script
+
+A test script is available in bin/ called robot_test.rb
+
 ## Usage
 
 Setup the robot
