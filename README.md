@@ -1,6 +1,6 @@
 # Robot
 
-TODO: Write a gem description
+Gem that allows you to move a robot around a 5x5 surface
 
 ## Installation
 
@@ -15,10 +15,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install robot
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
