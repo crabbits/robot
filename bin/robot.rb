@@ -34,7 +34,7 @@ def robot_moves_for(args)
     false
 
   else
-    puts @option_parser
+    #puts @option_parser
   end
 end
 
@@ -59,7 +59,7 @@ end
 
 @robot = Robot::Robot.new
 
-ARGV[0].nil? ? puts(@option_parser) : robot_moves_for(ARGV)
+robot_moves_for(ARGV) unless ARGV[0].nil? 
 
 while( user_input = $stdin.gets.chomp)
 
