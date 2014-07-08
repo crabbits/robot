@@ -20,8 +20,8 @@ Or install it yourself as:
 
 Setup the robot
 
-    $ position = Robot::Position.new(X, Y, ORIENTATION)
-    $ robot = Robot::Robot.new(position)
+    $ position = [1, 1, WEST]
+    $ robot = Robot::Robot.new(position: position)
     
 Turn the robot 90 degrees left
 
