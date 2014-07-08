@@ -2,14 +2,13 @@ require 'spec_helper'
 
 describe Robot do
 
-  let(:position) { Robot::Position.new(0, 0, "north") }
-  subject { Robot::Robot.new(position) }
+  subject { Robot::Robot.new(position: [0, 0, "NORTH"]) }
 
-  its(:position) { should eq position }
-  
+  its(:position) { should_not be_nil }
+
   describe "report_position" do
 
-    let (:robot) { Robot::Robot.new(position) }
+    let (:robot) { Robot::Robot.new(position: [0, 0, "NORTH"]) }
 
     it "should report the correct position after moving the robot with valid movements" do
       valid_moves_for(robot)

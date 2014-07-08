@@ -7,35 +7,28 @@ def place_params_valid?(args)
   !args[1].nil? and args[1].split(',').length == 3
 end
 
-def build_robot(args)
+def place_robot(args)
   x_axis, y_axis, orientation = args[1].split(',').each { |arg| arg }
-
-  position = Robot::Position.wrapper(x_axis.to_i, y_axis.to_i, orientation)
-  position ? Robot::Robot.new(position) : nil
+  @robot.place(x_axis.to_i, y_axis.to_i, orientation)
 end
 
 def robot_moves_for(args)
 
   case args[0].downcase
   when "place"
-    @robot = build_robot(args) || @robot if place_params_valid?(args)
-    true
+    place_robot(args) if place_params_valid?(args)
 
   when "right"
-    @robot.right if @robot
-    true
+    @robot.right
 
   when "left"
-    @robot.left if @robot
-    true
+    @robot.left
 
   when "move"
-    @robot.move if @robot
-    true
+    @robot.move
 
   when "report"
-    puts @robot.report_position if @robot
-    true
+    puts @robot.report_position if @robot.position
 
   when "exit"
     false
@@ -64,11 +57,13 @@ end
 
 @option_parser.parse!
 
+@robot = Robot::Robot.new
+
 ARGV[0].nil? ? puts(@option_parser) : robot_moves_for(ARGV)
 
 while( user_input = $stdin.gets.chomp)
 
   args = user_input.split(' ').collect { |opt| opt }
-  break unless robot_moves_for(args)	
+  break if robot_moves_for(args) == false
 
 end
